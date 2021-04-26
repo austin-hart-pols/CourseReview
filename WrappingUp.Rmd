@@ -1,0 +1,499 @@
+---
+title: "WRAPPING UP"
+subtitle: "and the final exam"
+author: "Austin Hart"
+institute: "American University"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, rladies, rladies-fonts]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  message=FALSE, warning=FALSE, eval = TRUE, echo = FALSE, 
+  fig.align = 'center', dev='svg'
+)
+```
+
+
+```{r results='hide'}
+library(tidyverse)
+library(magrittr)
+library(kableExtra)
+
+setwd("~/Conclusion")
+
+```
+
+# Plan for today
+
+- Overview of course content
+
+- Final exam prep
+  - What to expect
+  - Tips for studying
+
+- Open for questions
+
+
+---
+class: middle, right, inverse
+
+# COURSE IN REVIEW
+### what did we even do?
+
+
+---
+# The course in brief
+
+.left-column[
+
+### our goal
+
+
+]
+
+.right-column[
+
+- Ask and answer empirical questions.
+
+- Assess and critique causal claims.
+
+- Participate in and contribute to the advancement of human knowledge.
+
+]
+
+---
+# The course in brief
+
+.left-column[
+
+### our goal
+
+### framework
+
+]
+
+.right-column[
+
+- Modern scientific approach
+  - ask questions
+  - formalize hypotheses
+  - collect data
+  - reject the implausible
+
+- Quantitative statistical analysis
+  - Large-N approach
+  - Descriptive analysis
+  - Null hypotheses testing
+  - Regression/Multiple regression
+
+]
+
+
+---
+# The course in brief
+
+.left-column[
+
+### our goal
+
+### framework
+
+### why bother?
+
+]
+
+.right-column[
+
+> THE METHOD MATTERS
+
+- Fundamental Problem of Causal Inference
+  - Effect of T (vs C) on Y $= Y_{i,T} - Y_{i,C}$
+  - But can only see $i$ exposed to $T$ or $C$.
+  - Means we can estimate but **never observe** causal effect
+  
+- Hurdles to valid causal inference 
+  - Evidence of empirical association
+  - Causal mechanism
+  - Ensure "exposure to treatment" precedes outcome
+  - Eliminate possible confounding bias
+
+]
+
+
+
+---
+# The course in brief
+
+.left-column[
+
+### our goal
+
+### framework
+
+### why bother?
+
+### role of stats
+
+]
+
+.right-column[
+
+Where do "the stats" fit in?  
+
+- Describe the world
+  - Summary stats and visualization
+  - Frequency/counts
+
+- Establish empirical association
+  - Difference of means
+  - Cross-tabulation
+  - Correlation/bivariate regression
+  
+- Eliminate confounding bias
+  - Multiple regression
+  - Experimental (RCT) research design!
+
+]
+
+
+---
+class: inverse, middle, right
+
+# CORE CONCEPTS
+
+
+
+---
+# Big ideas to know
+
+- Causal inference
+
+- FPCI
+
+- RCT vs observational vs ITS designs
+
+- Hurdles to valid causal inference
+
+- Central limit theorem
+
+- Hypothesis testing and p-values
+
+- Omitted variable bias
+
+
+---
+class: inverse, right, middle
+
+# CORE SKILLS
+### and when to use them
+
+
+---
+# Core skills
+
+.left-column[
+
+### Summary stats
+
+]
+
+
+.right-column[
+
+To describe data on a **numeric** variable:  
+
+- Central tendency
+  - Mean: first choice; biased in skewed dist
+  - Median: safe option in presence of skew
+  
+- Dispersion
+  - Standard deviation: pair with mean
+  - Interquartile range (IQR): pair with median
+  
+- Visualization
+  - Histogram
+  - Boxplot
+
+]
+
+
+
+---
+# Core skills
+
+.left-column[
+
+### Summary stats
+
+### Freqs/counts
+
+]
+
+
+.right-column[
+
+To describe data on a **nominal** variable:  
+
+- Presentation
+  - Relative frequency table
+  - Bar chart
+  
+- Critical values
+  - Modal category
+  - Modal frequency
+
+]
+
+
+
+
+---
+# Core skills
+
+.left-column[
+
+### Summary stats
+
+### Freqs/counts
+
+### Diff means
+
+]
+
+
+.right-column[
+
+Difference of means   
+
+- Evaluate association between
+  - **numeric** outcome variable
+  - **binary** treatment variable
+  
+- Presentation
+  - Box plot or table of group means
+  - Write out and compare group means
+  
+- Hypothesis testing, $t-$test
+  - Null: no mean difference $\mu_T - \mu_C = 0$
+  - p-value: $Pr[(Y_T - Y_C) ~ | ~ (\mu_T - \mu_C = 0)]$
+
+]
+
+
+
+
+---
+# Core skills
+
+.left-column[
+
+### Summary stats
+
+### Freqs/counts
+
+### Diff means
+
+### Tabular
+
+]
+
+
+.right-column[
+
+Tabular analysis   
+
+- Evaluate association between
+  - **nominal** outcome variable
+  - **nominal** treatment variable
+  
+- Presentation
+  - Cross-tabulation (relative freq in columns!)
+  - Write out and compare results by category of X
+  
+- Hypothesis testing, $\chi^2$ test
+  - Null: X and Y are independent
+  - p-value: obs pattern given true independence
+
+]
+
+
+
+
+---
+# Core skills
+
+.left-column[
+
+### Summary stats
+
+### Freqs/counts
+
+### Diff means
+
+### Tabular
+
+### Regression
+
+]
+
+
+.right-column[
+
+Regression analysis  
+
+- Evaluate association between
+  - **numeric** outcome variable
+  - **numeric** treatment variable
+  
+- Presentation
+  - Scatter plot with linear fit
+  - Regression table
+  - Write out, interpret, and compare coeff estimates
+  
+- Hypothesis testing
+  - Null: $\beta = 0$
+  - p-value $= Pr(b_X ~ | ~ \beta_X=0)$
+
+]
+
+
+---
+class: inverse, middle, right
+
+# WHAT TO EXPECT
+
+### and how to prep
+
+
+---
+# The final exam
+
+.left-column[
+
+### When?
+
+]
+
+
+.right-column[
+
+- Posted Thursday (4/29) night on Blackboard
+
+- 2.5 hour timed exam
+
+- MUST BEGIN ON/BEFORE MONDAY, 5/3
+
+]
+
+
+---
+# The final exam
+
+.left-column[
+
+### When?
+
+### What?
+
+]
+
+
+.right-column[
+
+- Written exam
+  - short answer + some multiple choice
+  - diagnose and assess a claim
+  - explain/apply a core concept
+  - interpret statistical tests/results
+  - *some* analysis of data in R
+
+- Open note. CLOSED HUMAN.
+
+- Modeled on PS and workshops
+
+]
+
+
+---
+# The final exam
+
+.left-column[
+
+### When?
+
+### What?
+
+### Prep
+
+]
+
+
+.right-column[
+
+- Make a study sheet
+  - core concepts and definitions
+  - when to use what stats/tests
+  - correct interp of different tests
+
+- Make an R script that works for you
+  - loading data
+  - executing tests
+  - creating visuals
+  
+- Review PS keys
+
+- Revisit reading/lecture in weak areas
+
+]
+
+
+
+
+---
+# The final exam
+
+.left-column[
+
+### When?
+
+### What?
+
+### Prep
+
+### Beware
+
+]
+
+
+.right-column[
+
+- Closed. Human. Exam.
+
+- Prep with friends; exit chats as you begin exam.
+
+]
+
+
+
+---
+class: inverse
+
+# Wrapping up
+
+### Ours is important work
+
+- Asking questions
+
+- Challenging convention
+
+- Advancing human knowledge
+
