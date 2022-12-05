@@ -13,10 +13,18 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # WRAPPING UP
-## and the final exam
+]
+.subtitle[
+## and final projects
+]
+.author[
 ### Austin Hart
+]
+.institute[
 ### American University
+]
 
 ---
 
@@ -31,9 +39,9 @@ class: center, middle, inverse, title-slide
 
 - Overview of course content
 
-- Final exam prep
-  - What to expect
-  - Tips for studying
+- Final project prep
+  - Setting your schedule
+  - Building from presentation
 
 - Open for questions
 
@@ -113,13 +121,13 @@ class: middle, right, inverse
 - Fundamental Problem of Causal Inference
   - Effect of T (vs C) on Y `\(= Y_{i,T} - Y_{i,C}\)`
   - But can only see `\(i\)` exposed to `\(T\)` or `\(C\)`.
-  - Means we can estimate but **never observe** causal effect
+  - We can estimate but **never observe** causal effect
   
 - Hurdles to valid causal inference 
   - Evidence of empirical association
   - Causal mechanism
-  - Ensure "exposure to treatment" precedes outcome
-  - Eliminate possible confounding bias
+  - Eliminate bias from confounding
+  - Eliminate bias from reverse causality
 
 ]
 
@@ -150,12 +158,11 @@ Where do "the stats" fit in?
 
 - Establish empirical association
   - Difference of means
-  - Cross-tabulation
-  - Correlation/bivariate regression
+  - Regression analysis
   
 - Eliminate confounding bias
   - Multiple regression
-  - Experimental (RCT) research design!
+  - Experimental design
 
 ]
 
@@ -170,19 +177,15 @@ class: inverse, middle, right
 ---
 # Big ideas to know
 
-- Causal inference
+- Causal inference and FPCI
 
-- FPCI
-
-- RCT vs observational vs ITS designs
+- Experimental vs observational designs
 
 - Hurdles to valid causal inference
 
-- Central limit theorem
-
 - Hypothesis testing and p-values
 
-- Omitted variable bias
+- Multiple regression and confounding bias
 
 
 ---
@@ -204,7 +207,7 @@ class: inverse, right, middle
 
 .right-column[
 
-To describe data on a **numeric** variable:  
+To summarize data on a **numeric** variable:  
 
 - Central tendency
   - Mean: first choice; biased in skewed dist
@@ -236,7 +239,7 @@ To describe data on a **numeric** variable:
 
 .right-column[
 
-To describe data on a **nominal** variable:  
+To summarize data on a **categorical** variable:  
 
 - Presentation
   - Relative frequency table
@@ -271,7 +274,7 @@ Difference of means
 
 - Evaluate association between
   - **numeric** outcome variable
-  - **binary** treatment variable
+  - **binary** exposure variable
   
 - Presentation
   - Box plot or table of group means
@@ -284,8 +287,6 @@ Difference of means
 ]
 
 
-
-
 ---
 # Core skills
 
@@ -296,45 +297,6 @@ Difference of means
 ### Freqs/counts
 
 ### Diff means
-
-### Tabular
-
-]
-
-
-.right-column[
-
-Tabular analysis   
-
-- Evaluate association between
-  - **nominal** outcome variable
-  - **nominal** treatment variable
-  
-- Presentation
-  - Cross-tabulation (relative freq in columns!)
-  - Write out and compare results by category of X
-  
-- Hypothesis testing, `\(\chi^2\)` test
-  - Null: X and Y are independent
-  - p-value: obs pattern given true independence
-
-]
-
-
-
-
----
-# Core skills
-
-.left-column[
-
-### Summary stats
-
-### Freqs/counts
-
-### Diff means
-
-### Tabular
 
 ### Regression
 
@@ -347,12 +309,12 @@ Regression analysis
 
 - Evaluate association between
   - **numeric** outcome variable
-  - **numeric** treatment variable
+  - **numeric** exposure variable
   
 - Presentation
   - Scatter plot with linear fit
   - Regression table
-  - Write out, interpret, and compare coeff estimates
+  - Interpret coefficient estimates
   
 - Hypothesis testing
   - Null: `\(\beta = 0\)`
@@ -364,68 +326,69 @@ Regression analysis
 ---
 class: inverse, middle, right
 
-# WHAT TO EXPECT
+# FINAL PROJECT
 
-### and how to prep
+### beyond the presentation
 
 
 ---
-# The final exam
+# Final project
 
 .left-column[
 
-### When?
+### What and when?
 
 ]
 
 
 .right-column[
 
-- Posted Thursday (4/29) night on Blackboard
+- Deliverables
+  - Written analysis memo (1000-1500 words)
+  - Replication dataset ('LastName.Rdata')
+  - Replication script ('LastName.R')
 
-- 2.5 hour timed exam
-
-- MUST BEGIN ON/BEFORE MONDAY, 5/3
+- DUE TUESDAY, DECEMBER 13
 
 ]
 
 
 ---
-# The final exam
+# Final project
 
 .left-column[
 
-### When?
+### What and when?
 
-### What?
+### The memo
 
 ]
 
 
 .right-column[
 
-- Written exam
-  - short answer + some multiple choice
-  - diagnose and assess a claim
-  - explain/apply a core concept
-  - interpret statistical tests/results
-  - *some* analysis of data in R
-
-- Open note. CLOSED HUMAN.
-
-- Modeled on PS and workshops
+- Executive summary
+- Background and expectation
+- Data
+  - Source, coverage, measurement
+  - Graph and description of outcome var
+- Analysis
+  - Graph of bivariate relationship
+  - Table of bivariate and multiple regression
+  - Clear interpretation
+- Conclusion
 
 ]
 
 
 ---
-# The final exam
+# Final project
 
 .left-column[
 
-### When?
+### What and when?
 
-### What?
+### The memo
 
 ### Prep
 
@@ -434,19 +397,11 @@ class: inverse, middle, right
 
 .right-column[
 
-- Make a study sheet
-  - core concepts and definitions
-  - when to use what stats/tests
-  - correct interp of different tests
-
-- Make an R script that works for you
-  - loading data
-  - executing tests
-  - creating visuals
-  
-- Review PS keys
-
-- Revisit reading/lecture in weak areas
+- Build from feedback
+- Follow the guidelines
+- Care in format on tables and graphs
+- Clear question
+- Clear interpretation of tests and results
 
 ]
 
@@ -458,9 +413,9 @@ class: inverse, middle, right
 
 .left-column[
 
-### When?
+### What and when?
 
-### What?
+### The memo
 
 ### Prep
 
@@ -471,9 +426,15 @@ class: inverse, middle, right
 
 .right-column[
 
-- Closed. Human. Exam.
+- Give yourself TIME!
+  - **Don't have data?** Red alert!
+  - **Fix/improve analysis?** Do this first.
+  - **Writing and interpretation** Think 2 or 3 drafts
 
-- Prep with friends; exit chats as you begin exam.
+- Work must be your own.
+  - Your code.
+  - Your visuals.
+  - Your analysis.
 
 ]
 
@@ -484,13 +445,13 @@ class: inverse
 
 # Wrapping up
 
-### Ours is important work
+### Importance of a scientific approach
 
 - Asking questions
 
 - Challenging convention
 
-- Advancing human knowledge
+- Building knowledge
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
@@ -539,6 +500,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
