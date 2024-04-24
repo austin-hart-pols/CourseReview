@@ -1,40 +1,32 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>WRAPPING UP</title>
+    <title>Wrapping up and looking ahead</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Austin Hart" />
-    <script src="libs/header-attrs/header-attrs.js"></script>
-    <link href="libs/remark-css/default.css" rel="stylesheet" />
-    <link href="libs/remark-css/rladies.css" rel="stylesheet" />
-    <link href="libs/remark-css/rladies-fonts.css" rel="stylesheet" />
+    <meta name="author" content="Austin Hart, Ph.D." />
+    <script src="libs/header-attrs-2.26/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.6/panelset.js"></script>
+    <link rel="stylesheet" href="css/nhsr.css" type="text/css" />
+    <link rel="stylesheet" href="css/nhsr-fonts.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse, title-slide
 
-.title[
-# WRAPPING UP
-]
-.subtitle[
-## and final projects
-]
-.author[
-### Austin Hart
-]
-.institute[
+
+
+
+
+class: title-slide, left, bottom
+
+# Wrapping up and looking ahead
+----
+### Austin Hart, Ph.D.
 ### American University
-]
+
 
 ---
-
-
-
-
-
-
-
-
 # Plan for today
 
 - Overview of course content
@@ -47,7 +39,7 @@ class: center, middle, inverse, title-slide
 
 
 ---
-class: middle, right, inverse
+class: middle, inverse
 
 # COURSE IN REVIEW
 ### what did we even do?
@@ -116,14 +108,14 @@ class: middle, right, inverse
 
 .right-column[
 
-&gt; THE METHOD MATTERS
+**THE METHOD MATTERS**
 
 - Fundamental Problem of Causal Inference
-  - Effect of T (vs C) on Y `\(= Y_{i,T} - Y_{i,C}\)`
-  - But can only see `\(i\)` exposed to `\(T\)` or `\(C\)`.
+  - Effect of `\(T=1\)` on Y `\(= Y_{i,T=1} - Y_{i,T=0}\)`
+  - But can only see `\(i\)` exposed to `\(T=1\)` or instead to `\(T=0\)`.
   - We can estimate but **never observe** causal effect
   
-- Hurdles to valid causal inference 
+- Necessities for valid causal inference 
   - Evidence of empirical association
   - Causal mechanism
   - Eliminate bias from confounding
@@ -153,7 +145,7 @@ class: middle, right, inverse
 Where do "the stats" fit in?  
 
 - Describe the world
-  - Summary stats and visualization
+  - Summary stats
   - Frequency/counts
 
 - Establish empirical association
@@ -168,7 +160,7 @@ Where do "the stats" fit in?
 
 
 ---
-class: inverse, middle, right
+class: inverse, middle
 
 # CORE CONCEPTS
 
@@ -183,13 +175,13 @@ class: inverse, middle, right
 
 - Hurdles to valid causal inference
 
-- Hypothesis testing and p-values
+- Hypothesis testing
 
 - Multiple regression and confounding bias
 
 
 ---
-class: inverse, right, middle
+class: inverse, middle
 
 # CORE SKILLS
 ### and when to use them
@@ -324,7 +316,7 @@ Regression analysis
 
 
 ---
-class: inverse, middle, right
+class: inverse, middle
 
 # FINAL PROJECT
 
@@ -345,10 +337,9 @@ class: inverse, middle, right
 
 - Deliverables
   - Written analysis memo (1000-1500 words)
-  - Replication dataset ('LastName.Rdata')
   - Replication script ('LastName.R')
 
-- DUE TUESDAY, DECEMBER 13
+- DUE WEDNESDAY, MAY 1
 
 ]
 
@@ -371,9 +362,10 @@ class: inverse, middle, right
 - Background and expectation
 - Data
   - Source, coverage, measurement
-  - Graph and description of outcome var
+  - Graph and description of outcome
 - Analysis
   - Graph of bivariate relationship
+  - Description of your approach and models
   - Table of bivariate and multiple regression
   - Clear interpretation
 - Conclusion
@@ -409,7 +401,7 @@ class: inverse, middle, right
 
 
 ---
-# The final exam
+# Final project
 
 .left-column[
 
@@ -459,7 +451,7 @@ class: inverse
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,
-"countIncrementalSlides": false
+"ratio": "16:9"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
@@ -556,6 +548,34 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   }
   preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
 })(document);</script>
+<!--Hat-tip: https://www.garrickadenbuie.com/blog/xaringan-tip-logo-all-slides/-->
+<style>
+.logo {
+  background-image: url(img/logo-blue.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 1em;
+  right: 3em;
+  width: 80px;
+  height: 80px;
+  z-index: 0;
+}
+</style>
+
+<script>
+document
+  .querySelectorAll(
+    '.remark-slide-content' +
+    ':not(.title-slide)' +
+    // add additional classes to exclude here, e.g.
+    ':not(.inverse)' +
+    ':not(.hide-logo)'
+  )
+  .forEach(el => {
+    el.innerHTML += '<div class="logo"></div>';
+  });
+</script>
 
 <script>
 slideshow._releaseMath = function(el) {

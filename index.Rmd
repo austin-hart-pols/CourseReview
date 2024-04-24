@@ -1,0 +1,473 @@
+---
+title: "Wrapping up and looking ahead"
+subtitle: "and final projects"
+author: "Austin Hart, Ph.D."
+date: "American University"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: 
+      - default
+      - css/nhsr.css
+      - css/nhsr-fonts.css
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      ratio: "16:9"
+    includes:
+      after_body: [css/insert-logo.html]
+---
+
+
+```{r setup, include = FALSE}
+## Libraries
+  library(tidyverse)
+  library(knitr)
+  library(rmdformats)
+  library(modelsummary)
+  library(gt)
+
+## Global options
+  knitr::opts_chunk$set(
+    echo = FALSE, 
+    prompt = FALSE,
+    tidy = FALSE, 
+    comment = NA,
+    message = FALSE, 
+    warning = FALSE,
+    dev = 'CairoSVG',
+    fig.align = 'center'
+)
+  
+  xaringanExtra::use_panelset()
+  options(modelsummary_factory_default = "gt")
+```
+
+class: title-slide, left, bottom
+
+# `r rmarkdown::metadata$title`
+----
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+
+---
+# Plan for today
+
+- Overview of course content
+
+- Final project prep
+  - Setting your schedule
+  - Building from presentation
+
+- Open for questions
+
+
+---
+class: middle, inverse
+
+# COURSE IN REVIEW
+### what did we even do?
+
+
+---
+# The course in brief
+
+.left-column[
+
+### our goal
+
+
+]
+
+.right-column[
+
+- Ask and answer empirical questions.
+
+- Assess and critique causal claims.
+
+- Participate in and contribute to the advancement of human knowledge.
+
+]
+
+---
+# The course in brief
+
+.left-column[
+
+### our goal
+
+### framework
+
+]
+
+.right-column[
+
+- Modern scientific approach
+  - ask questions
+  - formalize hypotheses
+  - collect data
+  - reject the implausible
+
+- Quantitative statistical analysis
+  - Large-N approach
+  - Descriptive analysis
+  - Null hypotheses testing
+  - Regression/Multiple regression
+
+]
+
+
+---
+# The course in brief
+
+.left-column[
+
+### our goal
+
+### framework
+
+### why bother?
+
+]
+
+.right-column[
+
+**THE METHOD MATTERS**
+
+- Fundamental Problem of Causal Inference
+  - Effect of $T=1$ on Y $= Y_{i,T=1} - Y_{i,T=0}$
+  - But can only see $i$ exposed to $T=1$ or instead to $T=0$.
+  - We can estimate but **never observe** causal effect
+  
+- Necessities for valid causal inference 
+  - Evidence of empirical association
+  - Causal mechanism
+  - Eliminate bias from confounding
+  - Eliminate bias from reverse causality
+
+]
+
+
+
+---
+# The course in brief
+
+.left-column[
+
+### our goal
+
+### framework
+
+### why bother?
+
+### role of stats
+
+]
+
+.right-column[
+
+Where do "the stats" fit in?  
+
+- Describe the world
+  - Summary stats
+  - Frequency/counts
+
+- Establish empirical association
+  - Difference of means
+  - Regression analysis
+  
+- Eliminate confounding bias
+  - Multiple regression
+  - Experimental design
+
+]
+
+
+---
+class: inverse, middle
+
+# CORE CONCEPTS
+
+
+
+---
+# Big ideas to know
+
+- Causal inference and FPCI
+
+- Experimental vs observational designs
+
+- Hurdles to valid causal inference
+
+- Hypothesis testing
+
+- Multiple regression and confounding bias
+
+
+---
+class: inverse, middle
+
+# CORE SKILLS
+### and when to use them
+
+
+---
+# Core skills
+
+.left-column[
+
+### Summary stats
+
+]
+
+
+.right-column[
+
+To summarize data on a **numeric** variable:  
+
+- Central tendency
+  - Mean: first choice; biased in skewed dist
+  - Median: safe option in presence of skew
+  
+- Dispersion
+  - Standard deviation: pair with mean
+  - Interquartile range (IQR): pair with median
+  
+- Visualization
+  - Histogram
+  - Boxplot
+
+]
+
+
+
+---
+# Core skills
+
+.left-column[
+
+### Summary stats
+
+### Freqs/counts
+
+]
+
+
+.right-column[
+
+To summarize data on a **categorical** variable:  
+
+- Presentation
+  - Relative frequency table
+  - Bar chart
+  
+- Critical values
+  - Modal category
+  - Modal frequency
+
+]
+
+
+
+
+---
+# Core skills
+
+.left-column[
+
+### Summary stats
+
+### Freqs/counts
+
+### Diff means
+
+]
+
+
+.right-column[
+
+Difference of means   
+
+- Evaluate association between
+  - **numeric** outcome variable
+  - **binary** exposure variable
+  
+- Presentation
+  - Box plot or table of group means
+  - Write out and compare group means
+  
+- Hypothesis testing, $t-$test
+  - Null: no mean difference $\mu_T - \mu_C = 0$
+  - p-value: $Pr[(Y_T - Y_C) ~ | ~ (\mu_T - \mu_C = 0)]$
+
+]
+
+
+---
+# Core skills
+
+.left-column[
+
+### Summary stats
+
+### Freqs/counts
+
+### Diff means
+
+### Regression
+
+]
+
+
+.right-column[
+
+Regression analysis  
+
+- Evaluate association between
+  - **numeric** outcome variable
+  - **numeric** exposure variable
+  
+- Presentation
+  - Scatter plot with linear fit
+  - Regression table
+  - Interpret coefficient estimates
+  
+- Hypothesis testing
+  - Null: $\beta = 0$
+  - p-value $= Pr(b_X ~ | ~ \beta_X=0)$
+
+]
+
+
+---
+class: inverse, middle
+
+# FINAL PROJECT
+
+### beyond the presentation
+
+
+---
+# Final project
+
+.left-column[
+
+### What and when?
+
+]
+
+
+.right-column[
+
+- Deliverables
+  - Written analysis memo (1000-1500 words)
+  - Replication script ('LastName.R')
+
+- DUE WEDNESDAY, MAY 1
+
+]
+
+
+---
+# Final project
+
+.left-column[
+
+### What and when?
+
+### The memo
+
+]
+
+
+.right-column[
+
+- Executive summary
+- Background and expectation
+- Data
+  - Source, coverage, measurement
+  - Graph and description of outcome
+- Analysis
+  - Graph of bivariate relationship
+  - Description of your approach and models
+  - Table of bivariate and multiple regression
+  - Clear interpretation
+- Conclusion
+
+]
+
+
+---
+# Final project
+
+.left-column[
+
+### What and when?
+
+### The memo
+
+### Prep
+
+]
+
+
+.right-column[
+
+- Build from feedback
+- Follow the guidelines
+- Care in format on tables and graphs
+- Clear question
+- Clear interpretation of tests and results
+
+]
+
+
+
+
+---
+# Final project
+
+.left-column[
+
+### What and when?
+
+### The memo
+
+### Prep
+
+### Beware
+
+]
+
+
+.right-column[
+
+- Give yourself TIME!
+  - **Don't have data?** Red alert!
+  - **Fix/improve analysis?** Do this first.
+  - **Writing and interpretation** Think 2 or 3 drafts
+
+- Work must be your own.
+  - Your code.
+  - Your visuals.
+  - Your analysis.
+
+]
+
+
+
+---
+class: inverse
+
+# Wrapping up
+
+### Importance of a scientific approach
+
+- Asking questions
+
+- Challenging convention
+
+- Building knowledge
+
